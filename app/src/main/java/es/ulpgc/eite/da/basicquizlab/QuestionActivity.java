@@ -73,7 +73,7 @@ public class QuestionActivity extends AppCompatActivity {
         replyText.setText(R.string.incorrect_text);
       }
 
-    } else { // haz hecho clic en false o no haz hecho clic
+    } else { // haz hecho click en false o no haz hecho clic
 
       if(!nextButtonEnabled) { //  no haz hecho clic
 

@@ -6,21 +6,26 @@ import android.util.Log;
 import android.widget.Button;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class CheatActivity extends AppCompatActivity {
-  //hola soy puala
 
   public static final String TAG = "Quiz.CheatActivity";
 
   public final static String EXTRA_ANSWER = "EXTRA_ANSWER";
   public final static String EXTRA_CHEATED = "EXTRA_CHEATED";
 
+  public static final String KEY_USER_BUTTON = "USER_BUTTON";
+
+
+
   private Button noButton, yesButton;
   private TextView answerText;
 
   private int currentAnswer;
   private boolean answerCheated;
+  private boolean yesButtonClicked;
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +33,14 @@ public class CheatActivity extends AppCompatActivity {
     setContentView(R.layout.activity_cheat);
 
     getSupportActionBar().setTitle(R.string.cheat_title);
+    if(savedInstanceState != null) { // recreando activity
+
+      // fijando estado
+      yesButtonClicked = savedInstanceState.getBoolean(KEY_USER_BUTTON);
+    
+
+      // aplicar estado
+    }
 
     initLayoutData();
 
@@ -61,6 +74,13 @@ public class CheatActivity extends AppCompatActivity {
     setResult(RESULT_OK, intent);
 
     finish();
+  }
+
+  @Override
+  protected void onSaveInstanceState(@NonNull Bundle outState) {
+    super.onSaveInstanceState(outState);
+
+    outState.putBoolean("", yesButtonClicked);
   }
 
   @Override
