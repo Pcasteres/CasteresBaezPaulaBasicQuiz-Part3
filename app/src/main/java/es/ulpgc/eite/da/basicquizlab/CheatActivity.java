@@ -9,6 +9,7 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class CheatActivity extends AppCompatActivity {
+  //hola soy puala
 
   public static final String TAG = "Quiz.CheatActivity";
 
