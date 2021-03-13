@@ -75,7 +75,7 @@ public class QuestionActivity extends AppCompatActivity {
 
     } else { // haz hecho click en false o no haz hecho clic
 
-      if(!nextButtonEnabled) { //  no haz hecho clic
+      if(!nextButtonEnabled) { // no haz hecho clic
 
         replyText.setText(R.string.empty_text);
 
