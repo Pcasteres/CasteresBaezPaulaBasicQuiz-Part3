@@ -42,26 +42,16 @@ public class CheatActivity extends AppCompatActivity {
       answerCheated = savedInstanceState.getBoolean(EXTRA_CHEATED);
       yesButtonClicked=savedInstanceState.getBoolean(KEY_USER_BUTTON);
 
-
-
-
-
       // aplicar estado en 3
     }
 
     //1
-    initLayoutData();
+    initLayoutData(); //inicializa la aplicación
     //2
     linkLayoutComponents();
-    //3
-    //updateLayoutContent();
+
     enableLayoutButtons();
   }
-
- // private void updateLayoutContent() {
-    //answerText.setText(currentAnswer);
-
-  //}
 
   private void initLayoutData() {
     currentAnswer = getIntent().getExtras().getInt(EXTRA_ANSWER);
@@ -73,34 +63,27 @@ public class CheatActivity extends AppCompatActivity {
     yesButton = findViewById(R.id.yesButton);
 
     answerText = findViewById(R.id.answerText);
+  }
+
+  private void enableLayoutButtons() { //permite el usar y pulsar
+
+    //noButton.setOnClickListener(v -> onNoButtonClicked());
+    //yesButton.setOnClickListener(v -> onYesButtonClicked());
 
     if (yesButtonClicked) {
-
-      if (answerCheated == true) {
-        answerText.setText(R.string.true_text);
-      } else {
+      yesButton.setEnabled(false); //Tras pulsar 'Yes' deshabilito los botones para no poder pulsarlos
+      noButton.setEnabled(false);
+      if (currentAnswer == 0) {
         answerText.setText(R.string.false_text);
+      } else {
+        answerText.setText(R.string.true_text);
       }
 
     } else { // haz hecho click en no o no haz hecho clic
 
-      if (!yesButtonEnabled) { // no haz hecho clic
-
-        answerText.setText(R.string.empty_text);
-
-      } else { // haz hecho clic en no
-
-        returnCheatedStatus();
-      }
-
+      noButton.setOnClickListener(v -> onNoButtonClicked());
+      yesButton.setOnClickListener(v -> onYesButtonClicked());
     }
-  }
-
-  private void enableLayoutButtons() {
-
-    noButton.setOnClickListener(v -> onNoButtonClicked());
-    yesButton.setOnClickListener(v -> onYesButtonClicked());
-
   }
 
   private void returnCheatedStatus() {
