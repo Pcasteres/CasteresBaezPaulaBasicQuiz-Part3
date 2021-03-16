@@ -16,7 +16,7 @@ public class CheatActivity extends AppCompatActivity {
   public final static String EXTRA_ANSWER = "EXTRA_ANSWER";
   public final static String EXTRA_CHEATED = "EXTRA_CHEATED";
   public static final String KEY_USER_BUTTON = "USER_BUTTON";
-  public static final String CHEAT_REQUEST = "CHEAT_REQUEST";
+  //public static final String CHEAT_REQUEST = "CHEAT_REQUEST";
 
 
   private Button noButton, yesButton;
