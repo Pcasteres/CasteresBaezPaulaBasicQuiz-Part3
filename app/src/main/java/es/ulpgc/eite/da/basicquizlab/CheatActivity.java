@@ -15,9 +15,8 @@ public class CheatActivity extends AppCompatActivity {
 
   public final static String EXTRA_ANSWER = "EXTRA_ANSWER";
   public final static String EXTRA_CHEATED = "EXTRA_CHEATED";
-
   public static final String KEY_USER_BUTTON = "USER_BUTTON";
-
+  //public static final String CHEAT_REQUEST = "CHEAT_REQUEST";
 
 
   private Button noButton, yesButton;
@@ -26,7 +25,7 @@ public class CheatActivity extends AppCompatActivity {
   private int currentAnswer;
   private boolean answerCheated;
   private boolean yesButtonClicked;
-  private boolean yesButtonEnabled;
+
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
@@ -41,6 +40,7 @@ public class CheatActivity extends AppCompatActivity {
 
       answerCheated = savedInstanceState.getBoolean(EXTRA_CHEATED);
       yesButtonClicked=savedInstanceState.getBoolean(KEY_USER_BUTTON);
+      //currentAnswer = savedInstanceState.getInt(CHEAT_REQUEST);
 
       // aplicar estado en 3
     }
@@ -101,9 +101,10 @@ public class CheatActivity extends AppCompatActivity {
   protected void onSaveInstanceState(@NonNull Bundle outState) {
     super.onSaveInstanceState(outState);
 
-    outState.putBoolean("EXTRA_CHEATED",answerCheated);
+    outState.putBoolean(EXTRA_CHEATED,answerCheated);
     //outState.putInt("EXTRA_ANSWER", currentAnswer);
-    outState.putBoolean("USER_BUTTON",yesButtonClicked);
+    outState.putBoolean(KEY_USER_BUTTON,yesButtonClicked);
+    //outState.putInt(CHEAT_REQUEST,currentAnswer);
 
   }
 
